@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Test from './Test';
 
 function App() {
+  const [show,setShow] =useState(false)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+        <button onClick={()=>setShow(!show)}>Show/Hide</button>
+        {show && <Test/> }
+        <h2>This is a simple application showing 3 phases of a components lifecycle</h2>
+        
+        <ul>
+          <li>First due to Strick mode : Component will mount,then unmount and mount again</li>
+          <li>Click button = Mounting
+          </li>
+          <li>type input = Updating</li>
+          <li>click button again = Unmounting</li>
+        </ul>
+      
     </div>
   );
 }
